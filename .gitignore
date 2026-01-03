@@ -1,0 +1,8 @@
+handout
+papers
+*.tex
+*.gz
+data/
+__pycache__/
+run/
+results/
