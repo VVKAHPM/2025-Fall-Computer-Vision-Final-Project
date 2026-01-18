@@ -86,7 +86,7 @@ You can use `--path [PATH]` to specify an image you want to use as an input. The
 
 ### 3.3 MDETR
 
-To run patch clip test, you should use command `python stage2.py --run mdetr` 
+To run MDETR test, you should use command `python stage2.py --run mdetr` 
 
 You can modify the `question` in the first line of the function `MDETRtest` to test different questions.
 
