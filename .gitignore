@@ -2,7 +2,13 @@ handout
 papers
 *.tex
 *.gz
-data/
+data/cifar-10-batches-py
+data/oxford-iiit-pet
 __pycache__/
 run/
 results/
+results_vgg/
+gqa_EB5_checkpoint.pth
+*.aux
+*.log
+*.out
