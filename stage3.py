@@ -168,8 +168,10 @@ def attack(model, categories, raw_img, target, explainer, proto_heatmap, flag=Fa
     
     mask9 = get_mask(proto_heatmap, method="quantile", ratio=0.2).to(device)
     new_img9, history9 = texture_hijacking_attack(model, img, target, mask9, orig_label=pred_orig_idx)
+    mask10 = get_mask(proto_heatmap, method="quantileinverse", ratio=0.2).to(device)
+    new_img10, history10 = texture_hijacking_attack(model, img, target, mask10, orig_label=pred_orig_idx)
 
-    plot_attack_curves([history3,history6, history7, history8, history9], [ "PGD","quantile", "quantileinverse", "random", "quantile_proto"])
+    plot_attack_curves([history3,history6, history7, history8, history9, history10], [ "PGD","quantile", "quantileinverse", "random", "quantile_proto", "quantileinverse_proto"])
     # plot_attack_comparison(img, new_img8, heatmap, mask8, None)
     # plot_attack_comparison(img, new_img6, heatmap, mask6, None)
     # plot_attack_comparison(img, new_img9, proto_heatmap, mask9, None)

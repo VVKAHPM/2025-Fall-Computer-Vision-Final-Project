@@ -128,7 +128,7 @@ def shuffle_test():
     print(f"Average Logit change: {np.mean(stats['logit_gain']):+.2f}")
     print("="*50)
 
-def CLIPtest(image_path="images/apple_banana.jpg"):
+def CLIPtest(image_path="images/apple_red_green.jpg"):
     print("Loading CLIP RN50...")
     model, _ = clip.load("RN50", device=device)
     model.eval()
@@ -139,8 +139,8 @@ def CLIPtest(image_path="images/apple_banana.jpg"):
         {
             "img_path": image_path, 
             "queries": [
-                "the left object is apple",      # True Query
-                "the left object is banana",     # False Query (Spatial Failure Test)
+                "the color of the left apple is red",      # True Query
+                "the color of the left apple is green",     # False Query (Spatial Failure Test)
                 "the left apple",
                 "the right apple",
 
