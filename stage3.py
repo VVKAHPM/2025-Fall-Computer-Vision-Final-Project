@@ -177,15 +177,21 @@ def attack(model, categories, raw_img, target, explainer, proto_heatmap, flag=Fa
     # plot_attack_comparison(img, new_img9, proto_heatmap, mask9, None)
     # from torchvision.utils import save_image
     # save_image(new_img3.cpu(), 'results/stage3/hijacked.png')
-
-    # normalize_new_img = normalize(new_img)
-    # out_orig = model(normalize_new_img)
-    # pred_new_idx = out_orig.argmax(1).item()
-    # heatmap = explainer.generate(normalize_new_img, pred_new_idx)
-    # save_visual_result(normalize_new_img, heatmap, categories[pred_new_idx], categories[target], 0, T.Normalize(
-    #         mean=[-0.485/0.229, -0.456/0.224, -0.406/0.225],
-    #         std=[1/0.229, 1/0.224, 1/0.225]
-    #     ))
+    def show_heat_map(new_img):
+        normalize_new_img = normalize(new_img)
+        out_orig = model(normalize_new_img)
+        pred_new_idx = out_orig.argmax(1).item()
+        heatmap = explainer.generate(normalize_new_img, pred_new_idx)
+        save_visual_result(normalize_new_img, heatmap, categories[pred_new_idx], categories[target], 0, T.Normalize(
+                mean=[-0.485/0.229, -0.456/0.224, -0.406/0.225],
+                std=[1/0.229, 1/0.224, 1/0.225]
+            ))
+    show_heat_map(new_img3)
+    show_heat_map(new_img6)
+    show_heat_map(new_img7)
+    show_heat_map(new_img8)
+    show_heat_map(new_img9)
+    show_heat_map(new_img10)
 pet_categories = None
 def get_diagnose_dataloader():
     dataset = torchvision.datasets.OxfordIIITPet(
@@ -303,9 +309,7 @@ def main():
     model = resnet50(weights=weights).to(device)
     model.eval()
 
-    explainer = GradCAM(model, "layer3.5")
-    for name, _ in model.named_modules():
-        print(name)
+    explainer = GradCAM(model, "layer4.2")
     args = get_args()
     preprocess = T.Compose([
         T.Resize(256),
