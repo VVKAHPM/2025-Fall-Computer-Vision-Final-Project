@@ -170,12 +170,12 @@ def main():
         if is_correct and args.failure_only:
             continue
         heatmap = explainer.generate(img, class_idx=pred_idx)
-        # save_visual_result(img[0], heatmap, CLASSES[pred_idx], CLASSES[true_idx], subset[i], transforms.Normalize([-1, -1, -1], [2, 2, 2]))
+        save_visual_result(img[0], heatmap, CLASSES[pred_idx], CLASSES[true_idx], subset[i], transforms.Normalize([-1, -1, -1], [2, 2, 2]))
         if not args.vis_only:
             x, y1, y2, auc = deletion_metric(model, img, pred_idx, heatmap, metric="logit")
             auc_del += auc[0]
             auc_random += auc[1]
-            # plot_deletion_metric(x, y1, y2, auc, CLASSES[pred_idx])
+            plot_deletion_metric(x, y1, y2, auc, CLASSES[pred_idx])
         
     print(f"total_samples:{len(testloader)}")
     print(f"auc_del_avg:{auc_del / len(testloader):.3f}")
