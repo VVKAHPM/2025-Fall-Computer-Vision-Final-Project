@@ -1,10 +1,5 @@
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-from PIL import Image
 
 class CAM:
     def __init__(self, model, target_layer_name, fc_layer_name):

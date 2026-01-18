@@ -31,7 +31,6 @@ def get_args():
     parser.add_argument('--vis_only', action='store_true', help='Only generate heatmap result')
     parser.add_argument('--failure_only', action='store_true', help='Only use photos that are not classified correctly')
     
-    parser.add_argument('--output_dir', type=str, default='./results/stage1/', help='Result Directory')
     
     return parser.parse_args()
 

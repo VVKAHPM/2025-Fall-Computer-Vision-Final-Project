@@ -11,7 +11,7 @@ from tqdm import tqdm
 from utils import patch_shuffling_tensor, save_visual_result, visualize_mdetr_gradcam
 from explainers import GradCAM, CLIPGradCAM, MDETRGradCAM, TransformerGradCAM
 import argparse
-from MDETR import plot_results, box_cxcywh_to_xyxy, rescale_bboxes, apply_mask, plot_inference_qa
+from MDETR import plot_inference_qa
 
 import platform
 import pathlib

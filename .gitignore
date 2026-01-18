@@ -4,6 +4,7 @@ papers
 *.gz
 data/cifar-10-batches-py
 data/oxford-iiit-pet
+imagenet-sample-images/
 __pycache__/
 run/
 results/
