@@ -59,3 +59,11 @@ YourProject/
 ### 2. Stage 1
 
 This stage include basic CAM and Grad-CAM implementation, Deletion metric.
+
+Use
+
+```bash
+python stage1.py -h
+```
+
+for more help.

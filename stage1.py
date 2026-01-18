@@ -152,7 +152,7 @@ def main():
         if args.num_samples >= 0:
             subset = random.sample(range(len(testset)), k=args.num_samples)
         else:
-            subset = [i for i in range(100)]
+            subset = [i for i in range(len(testset))]
     sub_testset = Subset(testset, subset)
     testloader = DataLoader(sub_testset, batch_size=1, shuffle=False)
 
