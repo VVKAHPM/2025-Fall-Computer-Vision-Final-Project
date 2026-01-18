@@ -182,7 +182,7 @@ def attack(model, categories, raw_img, target, explainer, proto_heatmap, flag=Fa
         out_orig = model(normalize_new_img)
         pred_new_idx = out_orig.argmax(1).item()
         heatmap = explainer.generate(normalize_new_img, pred_new_idx)
-        save_visual_result(normalize_new_img, heatmap, categories[pred_new_idx], categories[target], 0, T.Normalize(
+        save_visual_result(normalize_new_img.detach(), heatmap, categories[pred_new_idx], categories[target], 0, T.Normalize(
                 mean=[-0.485/0.229, -0.456/0.224, -0.406/0.225],
                 std=[1/0.229, 1/0.224, 1/0.225]
             ))
