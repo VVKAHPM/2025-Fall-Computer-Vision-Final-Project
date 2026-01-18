@@ -233,8 +233,6 @@ def MDETRtest(img_path="images/mdetr.png"):
     img_tensor = transform(img).unsqueeze(0).cuda()
     explainer = TransformerGradCAM(model_qa, "transformer.encoder.layers.5", "backbone.0.body.blocks.6.2")
     explainer = MDETRGradCAM(model_qa, "backbone.0.body.blocks.6.2")
-    for name, _ in model_qa.named_modules():
-        print(name)
     memory_cache = model_qa(img_tensor, [question], encode_and_save=True)
     outputs = model_qa(img_tensor, [question], encode_and_save=False, memory_cache=memory_cache)
     type_conf, type_pred = outputs["pred_answer_type"].softmax(-1).max(-1)
