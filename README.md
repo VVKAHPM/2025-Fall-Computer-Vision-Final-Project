@@ -7,16 +7,12 @@ This repository contains the code for my final project.
 ## 1. Installation
 
 The code has been tested on Windows 11 with a single NVIDIA GPU (≥ 8GB memory).
-All experiments were conducted using the exact dependency versions specified in
-`requirements.txt`.
 
-### Environment (other versions may also be compatible)
 
 - Python 3.12.8
 - PyTorch 2.9.1
 - CUDA 12.6 (optional, CPU execution is supported for visualization)
 
-### Create environment
 
 1. Install [Conda](https://www.anaconda.com/) and create a `Conda` environment.
 
@@ -58,12 +54,14 @@ YourProject/
 
 ### 2. Stage 1
 
-This stage include basic CAM and Grad-CAM implementation, Deletion metric.
+This stage include basic CAM and Grad-CAM implementation and Deletion metric.
 
-Use
+Use `python stage1.py -h` for more help.
 
-```bash
-python stage1.py -h
-```
+If you don't want to see visulization result, please comment out the call of `save_visual_result`, `deletion_metric` and `plot_deletion_metric` functions.
 
-for more help.
+### 3. Stage 2
+
+This stage include patch shuffle test, CLIP test and MDETR test.
+
+To run patch shuffle test, you should use command `python stage2.py --run shuffle`

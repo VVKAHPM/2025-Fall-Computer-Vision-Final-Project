@@ -2,6 +2,8 @@ torch==2.9.1
 torchvision==0.24.1
 torchaudio==2.9.1
 
+
+clip @ git+https://github.com/openai/CLIP.git@dcba3cb2e2827b402d2701e7e1c7d9fed8a20ef1
 transformers==4.52.3
 timm==0.5.4
 ttach==0.0.3
